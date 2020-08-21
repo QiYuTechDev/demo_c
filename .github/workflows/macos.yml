@@ -35,5 +35,5 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: windows
+          name: macos
           path: $GITHUB_WORKSPACE/build/Release/demo_c
