@@ -19,16 +19,21 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-    - name: env
-      run: echo $GITHUB_WORKSPACE
+      - name: env
+        run: echo $GITHUB_WORKSPACE
 
-    # Runs a single command using the runners shell
-    - name: cmake
-      run: cd $GITHUB_WORKSPACE && mkdir build && cd build && cmake ..
+      # Runs a single command using the runners shell
+      - name: cmake generate
+        run: cd $GITHUB_WORKSPACE && mkdir build && cd build && cmake ..
 
-    # Runs a set of commands using the runners shell
-    - name: build
-      run: cd $GITHUB_WORKSPACE/build && make
+      # Runs a set of commands using the runners shell
+      - name: cmake build
+        run: cd $GITHUB_WORKSPACE/build && cmake --build . --config Release
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: windows
+          path: $GITHUB_WORKSPACE/build/Release/demo_c
