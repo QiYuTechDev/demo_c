@@ -37,9 +37,9 @@ jobs:
         run: cd $GITHUB_WORKSPACE/build && cmake --build . --config Release
 
       - name: ls
-        run: cd $GITHUB_WORKSPACE/build && pwd && ls
+        run: cd $GITHUB_WORKSPACE/build && pwd && ls -alh
 
       - uses: actions/upload-artifact@v2
         with:
           name: linux
-          path: /home/runner/work/demo_c/demo_c/build/Release/demo_c
+          path: /home/runner/work/demo_c/demo_c/build/demo_c
