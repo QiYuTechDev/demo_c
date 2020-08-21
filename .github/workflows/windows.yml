@@ -31,4 +31,4 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: msbuild
-      run: cd D:\\a\\demo_c\\demo_c\\build && msbuild demo_c.sln
+      run: cd D:\\a\\demo_c\\demo_c\\build && Msbuild.exe demo_c.sln
