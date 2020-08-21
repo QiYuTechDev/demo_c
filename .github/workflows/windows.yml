@@ -24,8 +24,8 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: cmake
-      run: mkdir D:\\a\\demo_c\\demo_c\\build && cd D:\\a\\demo_c\\demo_c\\build && cmake ..
+      run: mkdir D:\\a\\demo_c\\demo_c\\build && cd D:\\a\\demo_c\\demo_c\\build && cmake .. && ls
 
     # Runs a set of commands using the runners shell
     - name: build
-      run: cd D:\\a\\demo_c\\demo_c\\build && make
+      run: cd D:\\a\\demo_c\\demo_c\\build && make build
