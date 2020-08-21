@@ -33,6 +33,9 @@ jobs:
       - name: cmake build
         run: cd $GITHUB_WORKSPACE/build && cmake --build . --config Release
 
+      - name: ls
+        run: cd $GITHUB_WORKSPACE/build && pwd && ls
+
       - uses: actions/upload-artifact@v2
         with:
           name: macos
