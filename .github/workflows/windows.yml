@@ -19,16 +19,20 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: cmake
-      run: mkdir D:\\a\\demo_c\\demo_c\\build && cd D:\\a\\demo_c\\demo_c\\build && cmake .. && ls
+      # Runs a single command using the runners shell
+      - name: cmake
+        run: mkdir D:\\a\\demo_c\\demo_c\\build && cd D:\\a\\demo_c\\demo_c\\build && cmake .. && ls
 
-    - name: display files
-      run: cd D:\\a\\demo_c\\demo_c\\build && ls
+      - name: display files
+        run: cd D:\\a\\demo_c\\demo_c\\build && ls
 
-    # Runs a set of commands using the runners shell
-    - name: msbuild
-      run: cd D:\\a\\demo_c\\demo_c\\build && Msbuild.exe demo_c.sln
+      # Runs a set of commands using the runners shell
+      - name: cmake build
+        run: cd D:\\a\\demo_c\\demo_c\\build && cmake --build . --config Release
+
+      - name: ls files
+        run: cd D:\\a\\demo_c\\demo_c\\build && ls
+
