@@ -22,13 +22,13 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: env
-      run: echo $env:GITHUB_WORKSPACE
+    - name: join path
+      run: $pathHeader = Join-Path -Path $env:GITHUB_WORKSPACE -ChildPath 'build'
 
-    # Runs a single command using the runners shell
+        # Runs a single command using the runners shell
     - name: cmake
-      run: cd /d $env:GITHUB_WORKSPACE && mkdir build && cd build && cmake ..
+      run: mkdir $pathHeader && cd $pathHeader && cmake ..
 
-    # Runs a set of commands using the runners shell
+        # Runs a set of commands using the runners shell
     - name: build
-      run: cd /d $env:GITHUB_WORKSPACE && cd build && make
+      run: cd $pathHeader && make
