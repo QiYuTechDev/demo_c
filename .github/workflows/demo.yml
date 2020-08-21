@@ -31,4 +31,4 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: build
-      run: cd $GITHUB_WORKSPACE/build && make build
+      run: cd $GITHUB_WORKSPACE/build && make
