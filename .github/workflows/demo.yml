@@ -22,12 +22,13 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    - name: env
+      run: echo $GITHUB_WORKSPACE
+
     # Runs a single command using the runners shell
-    - name: hello
-      run: echo "hello"
+    - name: cmake
+      run: cd $GITHUB_WORKSPACE && mkdir build && cmake ..
 
     # Runs a set of commands using the runners shell
-    - name: world
-      run: |
-        echo "world"
-        echo done
+    - name: build
+      run: cd $GITHUB_WORKSPACE/build && make build

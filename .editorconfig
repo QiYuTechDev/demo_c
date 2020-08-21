@@ -9,3 +9,6 @@ end_of_line = lf
 
 [Makefile]
 indent_size = tab
+
+[.yml]
+indent_size = 2
