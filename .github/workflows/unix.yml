@@ -26,7 +26,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: env
+      - name: Github 工作目录
         run: echo $GITHUB_WORKSPACE
 
       # Runs a single command using the runners shell
@@ -40,12 +40,14 @@ jobs:
         run: cd $GITHUB_WORKSPACE/build && pwd && ls -alh
 
       - uses: actions/upload-artifact@v2
+        name: 上传Linux版本的软件
         if: runner.os == 'Linux'
         with:
           name: linux_${{ matrix.os }}
           path: /home/runner/work/demo_c/demo_c/build/demo_c
 
       - uses: actions/upload-artifact@v2
+        name: 上传macOS版本的软件
         if: runner.os == 'macOS'
         with:
           name: macos_demo_c
