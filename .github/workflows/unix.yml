@@ -40,13 +40,13 @@ jobs:
         run: cd $GITHUB_WORKSPACE/build && pwd && ls -alh
 
       - uses: actions/upload-artifact@v2
-        if: ${{ runner.os }} == "Linux"
+        if: ${{ runner.os == "Linux" }}
         with:
           name: linux_${{ matrix.os }}
           path: /home/runner/work/demo_c/demo_c/build/demo_c
 
       - uses: actions/upload-artifact@v2
-        if: ${{ runner.os }} == "macOS"
+        if: ${{ runner.os == "macOS" }}
         with:
           name: macos_demo_c
           path: /Users/runner/work/demo_c/demo_c/build/demo_c
