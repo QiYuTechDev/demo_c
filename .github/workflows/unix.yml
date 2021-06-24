@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: linux
+name: Unix (Linux & macOS)
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ ubuntu-18.04, ubuntu-20.04 ]
+        os: [ ubuntu-18.04, ubuntu-20.04, macos-latest ]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -40,6 +40,13 @@ jobs:
         run: cd $GITHUB_WORKSPACE/build && pwd && ls -alh
 
       - uses: actions/upload-artifact@v2
+        if: ${{ runner.os }} == "Linux"
         with:
           name: linux_${{ matrix.os }}
           path: /home/runner/work/demo_c/demo_c/build/demo_c
+
+      - uses: actions/upload-artifact@v2
+        if: ${{ runner.os }} == "macOS"
+        with:
+          name: macos_demo_c
+          path: /Users/runner/work/demo_c/demo_c/build/demo_c
