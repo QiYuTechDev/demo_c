@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-16.04, ubuntu-18.04, ubuntu-20.04]
+        os: [ ubuntu-18.04, ubuntu-20.04 ]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -41,5 +41,5 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: linux
+          name: linux_${{ matrix.os }}
           path: /home/runner/work/demo_c/demo_c/build/demo_c
